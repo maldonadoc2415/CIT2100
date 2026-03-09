@@ -1,6 +1,7 @@
 import gamelogic as gl
 import ai
 
+
 def play_game():
     # Setup board
     my_board = [[' ' for _ in range(6)] for _ in range(7)]

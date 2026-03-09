@@ -21,11 +21,9 @@ def move_is_valid(board, move):
     # The column doesn't exist
     if move < 1 or move > (len(board)):
         return False
-
-    # The column is full
+     # The column is full
     if board[move-1][0] != ' ':
         return False
-
     return True
 
 def select_space(board, column, player):
