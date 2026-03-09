@@ -58,7 +58,6 @@ def score_position(board, piece):
     return score
 
 def minimax(board, depth, alpha, beta, maximizingPlayer, gl):
-   
     valid_locations = gl.available_moves(board)
     is_terminal = gl.game_is_over(board)
     
@@ -80,12 +79,13 @@ def minimax(board, depth, alpha, beta, maximizingPlayer, gl):
             b_copy = copy.deepcopy(board)
             gl.select_space(b_copy, col, AI_PIECE)
         
+            # Alpha-Beta Pruning 
             new_score = minimax(b_copy, depth-1, alpha, beta, False, gl)[1]
             if new_score > value:
                 value = new_score
                 column = col
             alpha = max(alpha, value)
-            if alpha >= beta: # Alpha-Beta Pruning 
+            if alpha >= beta: 
                 break
         return column, value
 

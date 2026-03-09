@@ -28,11 +28,10 @@ def play_game():
         else:
             # AI TURN
             print("AI is thinking (analyzing future moves)...")
-            # We pass 'gl' so the AI can use gl.select_space and gl.has_won during simulation
             move = ai.get_ai_move(my_board, gl)
             print(f"AI chose column {move}")
 
-        # Execute the move on the actual board
+        # Execute the move
         gl.select_space(my_board, move, turn)
 
         # Check for a win
