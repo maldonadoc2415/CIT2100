@@ -2,14 +2,12 @@ import gamelogic as gl
 import ai
 
 def play_game():
-    # Setup board: 7 columns, each with 6 rows
-    # Structured as board[column][row] to match your backend logic
+    # Setup board
     my_board = [[' ' for _ in range(6)] for _ in range(7)]
     
     print(" Welcome to Connect Four \n AI EDITION ")
     is_ai_game = input("Play against AI? (y/n): ").lower() == 'y'
     
-    # X usually goes first
     turn = "X"
     winner = False
 
@@ -17,7 +15,7 @@ def play_game():
         gl.print_board(my_board)
         available = gl.available_moves(my_board)
 
-        # Determine if it's a Human turn or AI turn
+        # Player turn or AI turn
         if turn == "X" or not is_ai_game:
             move = 0
             while move not in available:
@@ -46,7 +44,7 @@ def play_game():
         # Switch turns
         turn = "O" if turn == "X" else "X"
 
-    # Handle a Draw
+    # Handle a tie
     if not winner:
         gl.print_board(my_board)
         print("\n It's a tie! The board is full. ")
